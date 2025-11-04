@@ -1,5 +1,6 @@
-package com.loop.demo;
+package com.loop.demo.Ninjas.Model;
 
+import com.loop.demo.Missoes.Model.MissoesModel;
 import jakarta.persistence.*;
 
 // Entity ele transforma uma classe em uma entidade no BD
@@ -13,6 +14,11 @@ public class NinjaModel {
     private String nome;
     private String email;
     private int idade;
+
+    // @ManyToOne - um ninja tem uma unica missao
+    @ManyToOne
+    @JoinColumn(name = "missoes_id")
+    private MissoesModel missoes;
 
     public NinjaModel() {
     }
